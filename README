@@ -1,0 +1,17 @@
+= Mass Assignment
+
+Adds a class and instance method to ActiveRecord::Base that enables you to mass assign attributes circumventing the attribute protection. It can be used in admin actions that don't want to be limited by attr_protected or attr_accessible when assigning attributes.
+
+== Example
+
+  class User < ActiveRecord::Base
+    attr_accessible :full_name
+  end
+  
+  # Initialize a new User
+  user = User.mass_assign(params[:user])
+  user.save
+  
+  # Update a user
+  user.mass_assign(param[:user])
+  user.save
