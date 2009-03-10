@@ -43,6 +43,6 @@ module MassAssignment
   #   user.username = 'Manfred'
   #   user.password = 'very secret'
   def mass_assign(attributes)
-    attributes.each { |attribute, value| send("#{attribute}=", value) }
+    send(:attributes=, attributes, false)
   end
 end
