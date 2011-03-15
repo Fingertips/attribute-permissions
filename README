@@ -15,3 +15,7 @@ Adds a class and instance method to ActiveRecord::Base that enables you to mass 
   # Update a user
   user.mass_assign(param[:user])
   user.save
+
+== Install
+
+$ gem install attribute-permissions
