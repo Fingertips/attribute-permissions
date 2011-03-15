@@ -1,27 +1,12 @@
 module MassAssignmentTest
   module Initializer
-    VENDOR_RAILS = File.expand_path('../../../../rails', __FILE__)
-    OTHER_RAILS = File.expand_path('../../../rails', __FILE__)
     PLUGIN_ROOT = File.expand_path('../../', __FILE__)
     
-    def self.rails_directory
-      if File.exist?(VENDOR_RAILS)
-        VENDOR_RAILS
-      elsif File.exist?(OTHER_RAILS)
-        OTHER_RAILS
-      end
-    end
-    
     def self.load_dependencies
-      if rails_directory
-        $:.unshift(File.join(rails_directory, 'activesupport', 'lib'))
-        $:.unshift(File.join(rails_directory, 'activerecord', 'lib'))
-      else
-        require 'rubygems' rescue LoadError
-      end
+      require 'rubygems'
       
-      require 'activesupport'
-      require 'activerecord'
+      require 'active_support'
+      require 'active_record'
       
       require 'rubygems' rescue LoadError
       
@@ -32,7 +17,7 @@ module MassAssignmentTest
     end
     
     def self.configure_database
-      ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :dbfile => ":memory:")
+      ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
       ActiveRecord::Migration.verbose = false
     end
     

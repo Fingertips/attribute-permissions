@@ -46,3 +46,7 @@ module MassAssignment
     send(:attributes=, attributes, false)
   end
 end
+
+class ActiveRecord::Base
+  include MassAssignment
+end
