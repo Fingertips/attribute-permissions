@@ -43,7 +43,7 @@ module MassAssignment
   #   user.username = 'Manfred'
   #   user.password = 'very secret'
   def mass_assign(attributes)
-    send(:attributes=, attributes, false)
+    assign_attributes(attributes, :without_protection => true)
   end
 end
 

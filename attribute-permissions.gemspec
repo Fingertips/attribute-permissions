@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name = 'attribute-permissions'
-  spec.version = '0.9'
+  spec.version = '1.0'
   
   spec.author = "Manfred Stienstra"
   spec.email = "manfred@fngtps.com"
